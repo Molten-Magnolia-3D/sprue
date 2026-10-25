@@ -1,0 +1,32 @@
+{
+  "name": "sprue",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Two-part moulds for wax and resin",
+  "scripts": {
+    "dev": "next dev -p 43123 -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start -p 43123",
+    "test:mold": "tsx scripts/test-mold.ts",
+    "postinstall": "cp node_modules/manifold-3d/manifold.wasm public/manifold.wasm"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "manifold-3d": "^3.3.2",
+    "next": "^15.5.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.8",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@types/three": "^0.180.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
