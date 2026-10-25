@@ -98,7 +98,7 @@ export default function SprueApp() {
   const title = useMemo(() => result?.name ?? "Sprue", [result]);
 
   return (
-    <div className="flex h-dvh flex-col bg-foundry text-ink md:flex-row">
+    <div className="flex h-dvh flex-col overflow-hidden bg-foundry text-ink md:flex-row">
       <div className="h-[42dvh] shrink-0 md:h-auto md:min-h-0 md:flex-1">
         <Viewer result={result} mode={mode} />
       </div>
