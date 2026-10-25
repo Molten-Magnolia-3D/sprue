@@ -52,13 +52,16 @@ export default function Viewer({ result, mode }: Props) {
     controls.dampingFactor = 0.08;
     controls.target.set(0, 0, 12);
 
-    scene.add(new THREE.HemisphereLight(0xf4efe4, 0x2a2118, 1.1));
-    const key = new THREE.DirectionalLight(0xffe4c4, 1.4);
-    key.position.set(40, -30, 70);
+    scene.add(new THREE.HemisphereLight(0xf4efe4, 0x2a2118, 0.85));
+    const key = new THREE.DirectionalLight(0xffe4c4, 1.15);
+    key.position.set(55, -20, 28);
     scene.add(key);
-    const fill = new THREE.DirectionalLight(0x88a0c8, 0.35);
-    fill.position.set(-50, 40, 20);
+    const fill = new THREE.DirectionalLight(0x88a0c8, 0.45);
+    fill.position.set(-40, 50, 18);
     scene.add(fill);
+    const rim = new THREE.DirectionalLight(0xffd2a1, 0.35);
+    rim.position.set(10, 20, -40);
+    scene.add(rim);
 
     const group = new THREE.Group();
     scene.add(group);
@@ -139,7 +142,7 @@ export default function Viewer({ result, mode }: Props) {
       add(result.lower, plaster);
       add(result.upper, cope);
     } else {
-      const gap = 8;
+      const gap = 7;
       add(result.lower, plaster, -gap);
       add(result.upper, cope, gap);
     }
@@ -149,13 +152,15 @@ export default function Viewer({ result, mode }: Props) {
     const center = box.getCenter(new THREE.Vector3());
     ctx.controls.target.copy(center);
     const span = Math.max(size.x, size.y, size.z, 20);
+    const aspect = Math.max(ctx.camera.aspect, 0.35);
+    const dist = span * (aspect < 1 ? 1.55 / aspect : 1.35);
     ctx.camera.position.set(
-      center.x + span * 0.9,
-      center.y - span * 1.1,
-      center.z + span * 0.75,
+      center.x + dist * 0.95,
+      center.y - dist * 0.35,
+      center.z + dist * 0.22,
     );
     ctx.camera.near = span / 100;
-    ctx.camera.far = span * 20;
+    ctx.camera.far = span * 30;
     ctx.camera.updateProjectionMatrix();
   }, [result, mode]);
 
