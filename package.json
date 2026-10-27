@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start -p 43123",
     "test:mold": "tsx scripts/test-mold.ts",
+    "export:samples": "tsx scripts/export-samples.ts",
     "postinstall": "cp node_modules/manifold-3d/manifold.wasm public/manifold.wasm"
   },
   "dependencies": {

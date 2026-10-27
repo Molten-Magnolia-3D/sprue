@@ -252,6 +252,11 @@ export default function SprueApp() {
           <p className="text-center text-xs text-mute">
             {title} · both halves · millimetres
           </p>
+          <p className="text-center text-xs">
+            <a href="/releases" className="text-copper underline-offset-2 hover:underline">
+              Releases and downloads
+            </a>
+          </p>
         </div>
       </section>
     </div>

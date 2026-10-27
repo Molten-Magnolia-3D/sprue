@@ -49,6 +49,18 @@ npm start
 Install from the browser menu on a phone (`Add to Home screen`) — the app is
 a standalone PWA.
 
+## Releases
+
+Everything is on the GitHub releases page:
+
+**https://github.com/Molten-Magnolia-3D/sprue/releases**
+
+- App source (v1.0.0 and latest `main`)
+- Sample moulds: pawn, gem, bead, ring, or all four
+- Each mould zip has both STL halves, millimetres
+
+In the running app: [Releases](/releases).
+
 ## How the mould is built
 
 The mesh sits in a rectangular blank. Sprue subtracts the cavity, punches a

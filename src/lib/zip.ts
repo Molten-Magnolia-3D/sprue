@@ -13,7 +13,7 @@ function slug(name: string): string {
     .replace(/^-|-$/g, "");
 }
 
-export async function mouldZip(result: MoldResult): Promise<Blob> {
+function fillMouldZip(result: MoldResult): JSZip {
   const zip = new JSZip();
   const base = slug(result.name);
   zip.file(
@@ -42,7 +42,15 @@ export async function mouldZip(result: MoldResult): Promise<Blob> {
       "",
     ].join("\n"),
   );
-  return zip.generateAsync({ type: "blob" });
+  return zip;
+}
+
+export async function mouldZip(result: MoldResult): Promise<Blob> {
+  return fillMouldZip(result).generateAsync({ type: "blob" });
+}
+
+export async function mouldZipBytes(result: MoldResult): Promise<Uint8Array> {
+  return fillMouldZip(result).generateAsync({ type: "uint8array" });
 }
 
 export function downloadBlob(blob: Blob, filename: string): void {
